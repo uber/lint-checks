@@ -20,4 +20,5 @@ pluginManagement {
 }
 
 include ':sample-app'
+include ':lint-checks'
 include ':sample-lib'
