@@ -48,10 +48,18 @@ class XmlImageSrcDetector : ResourceXmlDetector() {
   override fun visitAttribute(context: XmlContext, attribute: Attr) {
     if (ANDROID_SRC == attribute.name && context.mainProject.minSdk < 21) {
       val replaceFix = LintFix.create()
-          .replace()
-          .text("android:src")
-          .with("app:srcCompat")
-          .build()
+          .composite(
+              LintFix.create()
+                  .set()
+                  .namespace("http://schemas.android.com/apk/res-auto")
+                  .attribute("srcCompat")
+                  .value(attribute.value)
+                  .build(),
+              LintFix.create()
+                  .unset()
+                  .android()
+                  .attribute("src")
+                  .build())
 
       context.report(ISSUE, context.getLocation(attribute), LINT_ERROR_MESSAGE,
           LintFix.create().composite(replaceFix))
