@@ -17,6 +17,7 @@
 def versions = [
         kotlin: '1.3.41',
         support: '27.1.1',
+        lint: '26.5.0',
         errorProne      : '2.3.3',
         gjf             : '1.7',
 ]
@@ -28,26 +29,33 @@ def androidx = [
 ]
 
 def apt = [
+    autoService: "com.google.auto.service:auto-service:1.0-rc4"
 ]
 
 def build = [
-        androidPlugin       : "com.android.tools.build:gradle:3.2.1",
+        androidPlugin       : "com.android.tools.build:gradle:3.5.0",
         buildToolsVersion   : "28.0.3",
         compileSdkVersion   : 28,
         ci: 'true' == System.getenv('CI'),
         minSdkVersion       : 19,
         targetSdkVersion    : 28,
+        javaVersion: JavaVersion.VERSION_1_8,
         errorProne           : "com.google.errorprone:error_prone_core:${versions.errorProne}",
         errorProneJavac      : "com.google.errorprone:javac:9+181-r4173-1",
         errorProneCheckApi   : "com.google.errorprone:error_prone_check_api:${versions.errorProne}",
         errorProneTestHelpers: "com.google.errorprone:error_prone_test_helpers:${versions.errorProne}",
         nullAway             : 'com.uber.nullaway:nullaway:0.7.0',
         gradlePlugins : [
-                android   : '3.4.1',
+                android   : '3.5.0',
                 kotlin    : '1.3.31',
                 errorProne: '0.8',
                 nullAway  : '0.2',
                 spotless  : '3.23.0',
+        ],
+        lint: [
+            api: "com.android.tools.lint:lint-api:${versions.lint}",
+            core: "com.android.tools.lint:lint:${versions.lint}",
+            tests: "com.android.tools.lint:lint-tests:${versions.lint}"
         ]
 ]
 

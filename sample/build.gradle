@@ -31,12 +31,13 @@ android {
     // Setup a simple lint config for an android app/library.
     lintOptions {
         abortOnError true
-        lintConfig rootProject.file('config/lint/lint.xml')
+        lintConfig rootProject.file('lint.xml')
     }
 }
 
 dependencies {
     implementation deps.androidx.appcompat
 
+    lintChecks project(":lint-checks-android")
     testImplementation deps.test.truth
 }
