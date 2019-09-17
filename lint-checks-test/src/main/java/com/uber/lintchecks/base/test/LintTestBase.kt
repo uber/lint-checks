@@ -52,7 +52,7 @@ abstract class LintTestBase {
 
   /** @return a Kotlin [TestFile] with indention. */
   protected fun kotlinSource(@Language("kotlin") source: String): TestFile {
-    return TestFiles.java(source).indented()
+    return TestFiles.kotlin(source).indented()
   }
 
   /** @return an XML [TestFile] with indention. */
