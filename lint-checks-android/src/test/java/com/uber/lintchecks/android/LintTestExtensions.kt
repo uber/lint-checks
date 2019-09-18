@@ -15,17 +15,6 @@
  */
 package com.uber.lintchecks.android
 
-import com.android.tools.lint.client.api.IssueRegistry
-import com.android.tools.lint.detector.api.CURRENT_API
-import com.android.tools.lint.detector.api.Issue
-import com.google.auto.service.AutoService
+import com.android.tools.lint.checks.infrastructure.TestFiles
 
-@AutoService(IssueRegistry::class)
-class LintRegistry : IssueRegistry() {
-  override val issues: List<Issue> = listOf(
-      XmlImageSrcDetector.ISSUE,
-      ResCompatGetColorDetector.ISSUE
-  )
-
-  override val api: Int = CURRENT_API
-}
+fun Any.appcompat() = TestFiles.bytes("libs/core-1.1.0.jar", javaClass.getResourceAsStream("/core-1.1.0.jar").readBytes())

@@ -6,6 +6,13 @@ spotless {
         trimTrailingWhitespace()
         endWithNewline()
     }
+    kotlin {
+        target "**/*.kt"
+        ktlint(deps.versions.ktlint).userData(['indent_size': '2', 'continuation_indent_size' : '2'])
+        licenseHeaderFile rootProject.file('spotless/copyright.kt')
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
     java {
         target "**/*.java"
         googleJavaFormat(deps.versions.gjf)

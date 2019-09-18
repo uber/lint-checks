@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 @file:Suppress("NOTHING_TO_INLINE", "unused")
 
 package com.uber.lintchecks.android
@@ -39,8 +38,8 @@ import kotlin.reflect.KClass
  * @param enableInTests whether or not to enable this lint in tests. Default is to enable for [Scope.JAVA_FILE] only.
  */
 inline fun <reified T> createImplementation(
-    scope: Scope = T::class.resolveScope(),
-    enableInTests: Boolean = scope == Scope.JAVA_FILE
+  scope: Scope = T::class.resolveScope(),
+  enableInTests: Boolean = scope == Scope.JAVA_FILE
 ): Implementation where T : Detector, T : FileScanner {
   return createImplementation(T::class.java, scope, enableInTests)
 }
@@ -60,9 +59,9 @@ inline fun <reified T> createResourceFolderImplementation(): Implementation wher
  * @param enableInTests whether or not to enable this lint in tests. Default is to enable for [Scope.JAVA_FILE] only.
  */
 fun createImplementation(
-    clazz: Class<out Detector>,
-    scope: Scope,
-    enableInTests: Boolean
+  clazz: Class<out Detector>,
+  scope: Scope,
+  enableInTests: Boolean
 ): Implementation {
   // We use the overloaded constructor that takes a varargs of `Scope` as the last param.
   // This is to enable on-the-fly IDE checks. We are telling lint to run on both
