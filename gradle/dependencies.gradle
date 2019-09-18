@@ -20,6 +20,7 @@ def versions = [
         lint: '26.5.0',
         errorProne      : '2.3.3',
         gjf             : '1.7',
+        ktlint: '0.31.0'
 ]
 
 def androidx = [
