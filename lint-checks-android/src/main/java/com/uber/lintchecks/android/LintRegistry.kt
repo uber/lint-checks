@@ -24,7 +24,8 @@ import com.google.auto.service.AutoService
 class LintRegistry : IssueRegistry() {
   override val issues: List<Issue> = listOf(
       XmlImageSrcDetector.ISSUE,
-      ResCompatGetColorDetector.ISSUE
+      ResCompatGetColorDetector.ISSUE,
+      XmlHardcodedColorOrDimensionDetector.ISSUE
   )
 
   override val api: Int = CURRENT_API
