@@ -33,14 +33,14 @@ class XmlHardcodedColorOrDimensionDetector : ResourceXmlDetector() {
   companion object {
     const val ISSUE_ID = "HardcodedValueInXML"
     val LINT_ERROR_MESSAGE = """
-                It's generally good practice not to hardcode colors and instead use theme attributes.
-                 This allows for easy refactoring and makes sure there aren't too many shades of the same color.
+                It's generally good practice not to hardcoded colors and instead use theme attributes.
+                 This allows for easy refactoring, multi-theme support and makes sure there aren't too many shades of the same color.
                  Dimensions should use theme attributes or (if they're specific to a feature) local resource references.
                 """.trimIndent().replace('\n', ' ')
     @JvmField
     val ISSUE = Issue.create(
         ISSUE_ID,
-        "Don't use hardcoded values",
+        "Don't use hardcoded values. Instead prefer using theme attributes or resource references.",
         LINT_ERROR_MESSAGE,
         Category.CORRECTNESS,
         6,
