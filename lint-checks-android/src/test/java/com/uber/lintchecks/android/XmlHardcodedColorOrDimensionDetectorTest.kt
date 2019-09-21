@@ -20,8 +20,6 @@ import com.uber.lintchecks.base.test.LintTestBase
 import org.junit.Test
 
 class XmlHardcodedColorOrDimensionDetectorTest : LintTestBase() {
-  override val testResourcesPath: String
-    get() = ""
 
   @Test
   fun testDetector_vectorDrawables_shouldIgnoreHardcodedDimensions() {

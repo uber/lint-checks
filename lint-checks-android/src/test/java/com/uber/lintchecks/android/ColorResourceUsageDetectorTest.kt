@@ -21,8 +21,6 @@ import org.junit.Test
 
 class ColorResourceUsageDetectorTest : LintTestBase() {
 
-  override val testResourcesPath = ""
-
   @Test
   fun testDetector_containsColorRes_shouldFail() {
     TestLintTask.lint()
