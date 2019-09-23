@@ -20,8 +20,6 @@ import com.uber.lintchecks.base.test.LintTestBase
 import org.junit.Test
 
 class ResCompatGetColorDetectorTest : LintTestBase() {
-  override val testResourcesPath: String
-    get() = ""
 
   @Test
   fun testResCompatGetColor_java_fails() {

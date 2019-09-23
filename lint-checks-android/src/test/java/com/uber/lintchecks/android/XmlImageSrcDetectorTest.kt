@@ -23,8 +23,6 @@ import org.junit.Test
 
 class XmlImageSrcDetectorTest : LintTestBase() {
 
-  override val testResourcesPath: String = "sample/ui/xml_image_src"
-
   @Test
   fun testDetector_useSrc_shouldFail() {
     TestLintTask.lint()
