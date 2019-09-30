@@ -58,7 +58,7 @@ inline fun <reified T> createResourceFolderImplementation(): Implementation wher
  * @param scope the target scope. Default will automatically resolve based on the implementation of the detector.
  * @param enableInTests whether or not to enable this lint in tests. Default is to enable for [Scope.JAVA_FILE] only.
  */
-fun createImplementation(
+inline fun createImplementation(
   clazz: Class<out Detector>,
   scope: Scope,
   enableInTests: Boolean
@@ -81,7 +81,7 @@ fun createImplementation(
   )
 }
 
-fun <T> KClass<T>.resolveScope(): Scope where T : Detector, T : FileScanner {
+inline fun <T> KClass<T>.resolveScope(): Scope where T : Detector, T : FileScanner {
   return java.let { clazz ->
     when {
       SourceCodeScanner::class.java.isAssignableFrom(clazz) -> Scope.JAVA_FILE
