@@ -19,6 +19,8 @@ pluginManagement {
     }
 }
 
-include ':sample', ':lint-checks-base'
+include ':sample'
+include ':lint-checks-base'
+include ':lint-checks-rxjava'
 include 'lint-checks-android'
 include ':lint-checks-test'

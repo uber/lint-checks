@@ -37,8 +37,8 @@ android {
 
 dependencies {
     implementation deps.androidx.appcompat
-    implementation deps.kotlin.stdLibJdk8
 
     lintChecks project(":lint-checks-android")
+    lintChecks project(":lint-checks-rxjava")
     testImplementation deps.test.truth
 }
