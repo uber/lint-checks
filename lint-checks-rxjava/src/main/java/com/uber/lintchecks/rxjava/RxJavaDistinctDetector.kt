@@ -5,6 +5,7 @@ import com.android.tools.lint.detector.api.Category
 import com.android.tools.lint.detector.api.Detector
 import com.android.tools.lint.detector.api.Issue
 import com.android.tools.lint.detector.api.JavaContext
+import com.android.tools.lint.detector.api.LintFix
 import com.android.tools.lint.detector.api.Severity
 import com.android.tools.lint.detector.api.SourceCodeScanner
 import com.intellij.psi.PsiMethod
@@ -38,7 +39,12 @@ class RxJavaDistinctDetector: Detector(), SourceCodeScanner {
 
   override fun visitMethodCall(context: JavaContext, node: UCallExpression, method: PsiMethod) {
     if (node.methodName == "distinct" && isMethodCallOnReactiveTypes(context.evaluator, node)) {
-      context.report(ISSUE, context.getLocation(node), LINT_ERROR_MESSAGE)
+      val quickFix = LintFix.create()
+          .replace()
+          .pattern("distinct")
+          .with("distinctUntilChanged")
+          .build()
+      context.report(ISSUE, context.getLocation(node), LINT_ERROR_MESSAGE, quickFix)
     }
   }
 
