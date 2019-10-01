@@ -17,22 +17,13 @@
 plugins {
     id 'java-library'
     id 'org.jetbrains.kotlin.jvm'
-    id 'org.jetbrains.kotlin.kapt'
-    id 'com.vanniktech.maven.publish'
 }
 
 sourceCompatibility = deps.build.javaVersion
 targetCompatibility = deps.build.javaVersion
 
 dependencies {
-    kapt deps.apt.autoService
-
     compileOnly deps.kotlin.stdLibJdk8
     compileOnly deps.build.lint.api
     compileOnly deps.apt.autoService
-    compileOnly project(":lint-checks-base")
-
-    testImplementation deps.build.lint.core
-    testImplementation deps.build.lint.tests
-    testImplementation project(':lint-checks-test')
 }
