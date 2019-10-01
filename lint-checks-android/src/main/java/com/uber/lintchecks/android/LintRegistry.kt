@@ -25,7 +25,9 @@ class LintRegistry : IssueRegistry() {
   override val issues: List<Issue> = listOf(
       XmlImageSrcDetector.ISSUE,
       ResCompatGetColorDetector.ISSUE,
-      XmlHardcodedColorOrDimensionDetector.ISSUE
+      XmlHardcodedColorOrDimensionDetector.ISSUE,
+      ColorResourceUsageDetector.ISSUE,
+      GetDrawableDetector.ISSUE
   )
 
   override val api: Int = CURRENT_API
