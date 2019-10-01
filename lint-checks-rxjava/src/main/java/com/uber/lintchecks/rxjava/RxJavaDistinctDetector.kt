@@ -34,14 +34,15 @@ class RxJavaDistinctDetector : Detector(), SourceCodeScanner {
 
   companion object {
     private const val ISSUE_ID = "RxJavaDistinct"
+    const val BRIEF_DESCRIPTION = "Distinct leads to wasting memory, use distinctUntilChanged instead since " +
+        "that covers most common use-cases"
     const val LINT_ERROR_MESSAGE = "distinct() works by holding all previous values in memory and " +
         "only can be used with a bounded observable. In most cases, distinctUntilChanged() works since " +
         "it only compares against the last emitted item instead of all items."
 
     val ISSUE = Issue.create(
         id = ISSUE_ID,
-        briefDescription = "Distinct leads to wasting memory, use distinctUntilChanged instead since " +
-            "that covers most common use-cases",
+        briefDescription = BRIEF_DESCRIPTION,
         explanation = LINT_ERROR_MESSAGE,
         category = Category.CORRECTNESS,
         priority = 6,
@@ -59,7 +60,7 @@ class RxJavaDistinctDetector : Detector(), SourceCodeScanner {
           .pattern("distinct")
           .with("distinctUntilChanged")
           .build()
-      context.report(ISSUE, context.getLocation(node), LINT_ERROR_MESSAGE, quickFix)
+      context.report(ISSUE, context.getLocation(node), BRIEF_DESCRIPTION, quickFix)
     }
   }
 

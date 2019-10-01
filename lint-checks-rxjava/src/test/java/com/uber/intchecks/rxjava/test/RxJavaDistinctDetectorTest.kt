@@ -18,6 +18,7 @@ package com.uber.intchecks.rxjava.test
 import com.android.tools.lint.checks.infrastructure.TestLintTask.lint
 import com.uber.lintchecks.base.test.LintTestBase
 import com.uber.lintchecks.rxjava.RxJavaDistinctDetector
+import com.uber.lintchecks.rxjava.RxJavaDistinctDetector.Companion.BRIEF_DESCRIPTION
 import org.junit.Test
 
 class RxJavaDistinctDetectorTest : LintTestBase() {
@@ -42,6 +43,7 @@ class RxJavaDistinctDetectorTest : LintTestBase() {
         .issues(RxJavaDistinctDetector.ISSUE)
         .run()
         .expectWarningCount(1)
+        .expectMatches(BRIEF_DESCRIPTION)
   }
 
   @Test
@@ -64,6 +66,7 @@ class RxJavaDistinctDetectorTest : LintTestBase() {
         .issues(RxJavaDistinctDetector.ISSUE)
         .run()
         .expectWarningCount(1)
+        .expectMatches(BRIEF_DESCRIPTION)
   }
 
   @Test
@@ -86,6 +89,7 @@ class RxJavaDistinctDetectorTest : LintTestBase() {
         .issues(RxJavaDistinctDetector.ISSUE)
         .run()
         .expectWarningCount(1)
+        .expectMatches(BRIEF_DESCRIPTION)
   }
 
   @Test
@@ -108,6 +112,7 @@ class RxJavaDistinctDetectorTest : LintTestBase() {
         .issues(RxJavaDistinctDetector.ISSUE)
         .run()
         .expectWarningCount(1)
+        .expectMatches(BRIEF_DESCRIPTION)
   }
 
   @Test
