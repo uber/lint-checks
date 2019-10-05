@@ -42,7 +42,6 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:2.2.12"
 
 //    lintChecks project(":lint-checks-android")
-//    lintChecks project(":lint-checks-rxjava")
-    lintChecks project(":lint-checks")
+    lintChecks project(":lint-checks-rxjava")
     testImplementation deps.test.truth
 }
