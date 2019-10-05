@@ -33,7 +33,6 @@ android {
     lintOptions {
         abortOnError true
         lintConfig rootProject.file('lint.xml')
-        enable "FrameworkPair"
     }
 }
 
