@@ -27,7 +27,8 @@ class LintRegistry : IssueRegistry() {
       ResCompatGetColorDetector.ISSUE,
       XmlHardcodedColorOrDimensionDetector.ISSUE,
       ColorResourceUsageDetector.ISSUE,
-      GetDrawableDetector.ISSUE
+      GetDrawableDetector.ISSUE,
+      FrameworkPairDetector.ISSUE
   )
 
   override val api: Int = CURRENT_API
