@@ -63,13 +63,11 @@ class StringFormatNoLocaleDetector : Detector(), SourceCodeScanner {
   }
 
   private fun isStringType(evaluator: JavaEvaluator, node: UCallExpression): Boolean {
-    return stringTypes().any { evaluator.isMemberInClass(node.resolve(), it) }
+    return evaluator.isMemberInClass(node.resolve(), "java.lang.String") ||
+        node.receiverType?.canonicalText == "kotlin.jvm.internal.StringCompanionObject"
   }
 
-  private fun stringTypes() = setOf("java.lang.String",
-      "kotlin.String",
-      // Kotlin extension fully qualified name for kotlin.String.format
-      "kotlin.text.StringsKt__StringsJVMKt")
+  private fun stringTypes() = setOf("java.lang.String", "kotlin.String")
 
   override fun getApplicableMethodNames(): List<String> = listOf("format")
 }
