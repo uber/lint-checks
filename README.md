@@ -1,15 +1,33 @@
-# Lint Checks [![Build Status](https://travis-ci.org/uber/your-project.svg?branch=master)](https://travis-ci.org/uber/your-project)
+# Lint Checks 
 
+![Build](https://github.com/uber/lint-checks/workflows/CI/badge.svg)
 
 ## Motivation
 
+As a codebase increases in size and complexity, static analysis checks become a very useful tool in ensuring high quality, bug free code. This repository provides a collection of lint checks based on Android Lint that guard against common pitfalls and bugs that you might encounter in day to day development.
+
 ## Download
 
-## Usage
+Java/Kotlin Lint Checks
+
+```groovy
+lintChecks "com.uber.lint-checks:lint-checks:x.y.z
+```
+
+Android Lint Checks
+
+```groovy
+lintChecks "com.uber.lint-checks:lint-checks-android:x.y.z
+```
+RxJava Lint Checks
+
+```groovy
+lintChecks "com.uber.lint-checks:lint-checks-rxjava:x.y.z
+```
 
 ## License
 
-    Copyright (C) 2017 Uber Technologies
+    Copyright (C) 2019 Uber Technologies
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
