@@ -107,3 +107,9 @@ tmp/
 
 # kotlin
 annotations/
+
+# Mkdocs
+docs/index.md
+docs/changelog.md
+docs/contributing.md
+docs/code-of-conduct.md
