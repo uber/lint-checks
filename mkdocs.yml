@@ -37,6 +37,7 @@ markdown_extensions:
 
 nav:
   - 'Overview': index.md
+  - 'Checks' : CHECKS.md
   - 'Changelog' : changelog.md
   - 'Contributing': contributing.md
   - 'Code of Conduct': code-of-conduct.md
