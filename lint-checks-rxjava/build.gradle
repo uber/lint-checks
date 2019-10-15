@@ -34,5 +34,5 @@ dependencies {
 
     testImplementation deps.build.lint.core
     testImplementation deps.build.lint.tests
-    testImplementation project(':lint-checks-test')
+    testImplementation project(':test-utils')
 }
