@@ -22,6 +22,7 @@ import com.google.auto.service.AutoService
 @AutoService(IssueRegistry::class)
 class LintRegistry : IssueRegistry() {
   override val issues: List<Issue> = listOf(
-      StringFormatNoLocaleDetector.ISSUE
+      StringFormatNoLocaleDetector.ISSUE,
+      StringToCaseNoLocaleDetector.ISSUE
   )
 }
