@@ -33,16 +33,16 @@ class StringToCaseNoLocaleDetector : Detector(), SourceCodeScanner {
   companion object {
     private const val ISSUE_ID = "StringToCaseNoLocale"
     private const val BRIEF_DESCRIPTION = "Don't use toLowerCase/toUpperCase without a locale"
-    const val LINT_ERROR_MESSAGE = "Calling String#toLowerCase() or #toUpperCase() without specifying an\n" +
-        "explicit locale is a common source of bugs. The reason for that is that\n" +
-        "those methods will use the current locale on the user's device, and even\n" +
-        "though the code appears to work correctly when you are developing the app,\n" +
-        "it will fail in some locales. For example, in the Turkish locale, the\n" +
-        "uppercase replacement for i is not I.\n" +
-        "If you want the methods to just perform ASCII replacement, for example to\n" +
-        "convert an enum name, call String#toUpperCase(Locale.US) instead. If you\n" +
-        "really want to use the current locale, call\n" +
-        "String#toUpperCase(Locale.getDefault()) instead."
+    const val LINT_ERROR_MESSAGE = """Calling String#toLowerCase() or #toUpperCase() without specifying an
+        explicit locale is a common source of bugs. The reason for that is that
+        those methods will use the current locale on the user's device, and even
+        though the code appears to work correctly when you are developing the app,
+        it will fail in some locales. For example, in the Turkish locale, the
+        uppercase replacement for i is not I.
+        If you want the methods to just perform ASCII replacement, for example to
+        convert an enum name, call String#toUpperCase(Locale.US) instead. If you
+        really want to use the current locale, call
+        String#toUpperCase(Locale.getDefault()) instead."""
 
     val ISSUE = Issue.create(
         id = ISSUE_ID,
