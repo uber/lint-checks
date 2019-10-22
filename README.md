@@ -6,7 +6,7 @@
 
 As a codebase increases in size and complexity, static analysis checks become a very useful tool in ensuring high quality, bug free code. This repository provides a collection of lint checks based on Android Lint that guard against common pitfalls and bugs that you might encounter in day to day development.
 
-See [project website](https://uber.github.io/lint-checks) for more details.
+See [project website](https://uber.github.io/getting-started) for more details.
 
 ## Download
 
