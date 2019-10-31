@@ -35,23 +35,28 @@ class SystemCurrentTimeMillisDetector : Detector(), SourceCodeScanner {
     private const val ISSUE_ID = "SystemCurrentTimeMillis"
     private const val BRIEF_DESCRIPTION = "Don't use System.currentTimeMillis"
     const val LINT_ERROR_MESSAGE = """Don't use System.currentTimeMillis.
-      Please prefer a Clock, as this is easily mocked, injected, and tested."""
+      Please prefer an abstraction like Clock, as this is easily mocked, injected, and tested."""
     val ISSUE = Issue.create(
         id = ISSUE_ID,
         briefDescription = BRIEF_DESCRIPTION,
         explanation = LINT_ERROR_MESSAGE,
         category = Category.CORRECTNESS,
         priority = 6,
-        severity = Severity.WARNING,
+        severity = Severity.ERROR,
         implementation = createImplementation<SystemCurrentTimeMillisDetector>())
   }
 
   override fun visitMethodCall(context: JavaContext, node: UCallExpression, method: PsiMethod) {
     if (!getApplicableMethodNames().contains(node.methodName)) return
 
-    if (node.methodName == "currentTimeMillis") {
+    val evaluator = context.evaluator
+    if (node.methodName == "currentTimeMillis" && isStringType(evaluator, node)) {
         context.report(ISSUE, context.getLocation(node), LINT_ERROR_MESSAGE)
     }
+  }
+
+  private fun isStringType(evaluator: JavaEvaluator, node: UCallExpression): Boolean {
+    return evaluator.isMemberInClass(node.resolve(), "java.lang.System")
   }
 
   override fun getApplicableMethodNames(): List<String> = listOf("currentTimeMillis")

@@ -36,7 +36,7 @@ class SystemCurrentTimeMillisDetectorTest : LintTestBase() {
             .detector(SystemCurrentTimeMillisDetector())
             .issues(SystemCurrentTimeMillisDetector.ISSUE)
             .run()
-            .expectWarningCount(1)
+            .expectErrorCount(1)
   }
 
   @Test
@@ -56,7 +56,7 @@ class SystemCurrentTimeMillisDetectorTest : LintTestBase() {
             .detector(SystemCurrentTimeMillisDetector())
             .issues(SystemCurrentTimeMillisDetector.ISSUE)
             .run()
-            .expectWarningCount(1)
+            .expectErrorCount(1)
   }
 
   @Test
@@ -76,7 +76,27 @@ class SystemCurrentTimeMillisDetectorTest : LintTestBase() {
             .detector(SystemCurrentTimeMillisDetector())
             .issues(SystemCurrentTimeMillisDetector.ISSUE)
             .run()
-            .expectWarningCount(1)
+            .expectErrorCount(1)
+  }
+
+  @Test
+  fun systemCurrentTimeMillis_with_clock_clean() {
+    lint()
+            .files(kotlinSource("""
+          package foo
+          
+          import java.lang.Clock
+
+          class Test {
+            fun something() {
+              val time = currentTimeMillis()
+            }
+          }
+        """))
+            .detector(SystemCurrentTimeMillisDetector())
+            .issues(SystemCurrentTimeMillisDetector.ISSUE)
+            .run()
+            .expectClean()
   }
 
   @Test
@@ -96,6 +116,6 @@ class SystemCurrentTimeMillisDetectorTest : LintTestBase() {
             .detector(SystemCurrentTimeMillisDetector())
             .issues(SystemCurrentTimeMillisDetector.ISSUE)
             .run()
-            .expectWarningCount(1)
+            .expectErrorCount(1)
   }
 }
