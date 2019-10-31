@@ -8,6 +8,8 @@ As a codebase increases in size and complexity, static analysis checks become a 
 
 See [project website](https://uber.github.io/lint-checks/getting-started) for more details.
 
+This project is experimental and the APIs are not considered stable.
+
 ## Download
 
 Java/Kotlin Lint Checks
