@@ -29,7 +29,9 @@ jobs:
     - name: Init FOSSA
       run: fossa init
     - name: Analyze FOSSA
-      run: fossa analyze  
+      run: fossa analyze
+      env:
+        FOSSA_API_KEY: 10d9d2e111c236cb776e7bb7c09bf244
     - name: Upload snapshot (master only)
       run: ./gradlew uploadArchives -PSONATYPE_NEXUS_USERNAME=${{ secrets.SonatypeUsername }} -PSONATYPE_NEXUS_PASSWORD=${{ secrets.SonatypePassword }}
       if: success() && github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
