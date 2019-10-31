@@ -13,7 +13,7 @@ jobs:
       with:
         java-version: 1.8
     - name: Setup FOSSA
-      run: curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
+      run: "curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash"
     - name: Configure Gradle
       # Initial gradle configuration, install dependencies, etc
       run: ./gradlew help
