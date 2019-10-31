@@ -50,12 +50,12 @@ class SystemCurrentTimeMillisDetector : Detector(), SourceCodeScanner {
     if (!getApplicableMethodNames().contains(node.methodName)) return
 
     val evaluator = context.evaluator
-    if (node.methodName == "currentTimeMillis" && isStringType(evaluator, node)) {
+    if (node.methodName == "currentTimeMillis" && isSystemType(evaluator, node)) {
         context.report(ISSUE, context.getLocation(node), LINT_ERROR_MESSAGE)
     }
   }
 
-  private fun isStringType(evaluator: JavaEvaluator, node: UCallExpression): Boolean {
+  private fun isSystemType(evaluator: JavaEvaluator, node: UCallExpression): Boolean {
     return evaluator.isMemberInClass(node.resolve(), "java.lang.System")
   }
 
