@@ -44,7 +44,7 @@ class SystemCurrentTimeMillisDetectorTest : LintTestBase() {
     lint()
             .files(kotlinSource("""
           package foo
-          
+
           import java.lang.System.currentTimeMillis
 
           class Test {
@@ -64,7 +64,7 @@ class SystemCurrentTimeMillisDetectorTest : LintTestBase() {
     lint()
             .files(kotlinSource("""
           package foo
-          
+
           import java.lang.System.*
 
           class Test {
@@ -84,7 +84,7 @@ class SystemCurrentTimeMillisDetectorTest : LintTestBase() {
     lint()
             .files(kotlinSource("""
           package foo
-          
+
           import java.lang.Clock
 
           class Test {
@@ -104,7 +104,7 @@ class SystemCurrentTimeMillisDetectorTest : LintTestBase() {
     lint()
             .files(kotlinSource("""
           package foo
-          
+
           import java.lang.System.currentTimeMillis as cmt
 
           class Test {
