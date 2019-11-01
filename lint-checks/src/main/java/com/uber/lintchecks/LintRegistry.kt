@@ -24,6 +24,8 @@ class LintRegistry : IssueRegistry() {
   override val issues: List<Issue> = listOf(
       StringFormatNoLocaleDetector.ISSUE,
       StringToCaseNoLocaleDetector.ISSUE,
-      SystemCurrentTimeMillisDetector.ISSUE
+      SystemCurrentTimeMillisDetector.ISSUE,
+      StringToCaseNoLocaleDetector.ISSUE,
+      UnsupportedJava8ApiDetector.ISSUE
   )
 }
