@@ -18,6 +18,15 @@ install: ./gradlew build --stacktrace
 script:
   - ./gradlew check --stacktrace
 
+after_success:
+  - .buildscript/deploy_snapshot.sh
+
+env:
+  global:
+    - GRADLE_OPTS="-Xmx768m -Xms256m -Xss1m" # To limit memory use on CI and avoid OOMs
+    - secure: "P4qCWiM4YOchzQdVV5JEBpVC8hMgS2/CGKLQ0qWJU5Hskgmd92OANvj4Ts2gl564Nrlz8Sh3iD6CpzDhpPRfHitVWf3E411HhyhD43KRsf1ud2iekmOx2/Yv8N4OF0dwtxQrlZlCDtR33sV8/obgzAigOuxwwxoE9eETwbKRRtqg+w5OX0GpDm0P2Avyu6F9601qTdLUq+awLMLs6gsQsM61Y0Cqe3RSlKwvhvGf9YaMwebeDHD5oHjqXlktWkGQWDk1nJWA3GqQLM8Q1NTyuviWDTCRX9xXuU4KSQX0sEWD5fwTMXnCMTtSefLmCYKfP9Js1tE9G/yKh741FYDr8358XBSWVVEq7oKFxc4297yOLuHA9XiBmQ0NMVZtBzsgZ8bMsZMLKAQQy9Da2CWu253YEHq8u2gd1pwRzbUnEYJaSJVSFBfZvcejiJbABuU5+ZHM77lzzc02iL0MjNTHxjo16aG3XZHc1ra4S0PCfmiX8OnE7wN0947dAgwNjY/AljyQkz1eBdMWjhklnCqI8Vnp+TsWIo1sSDAQxWW5BO5+z83z5K20xD8GiCaTTCKX2MO+7XfAddV1rlJTrl+yGwr3eE4RkU5BrVzivNke7y4XKB/wwgYscRetgFpUtujqNSoCSArMf+x6fxgQtEuA9ea3i+hR4JzjtdAWoNJdkxU="
+    - secure: "MjTTfhDZ6hLFUefAcmYwmZJOX8Js7pyc+KfpSUt4UQLOaX5Ld6Z9edg6J4eaf/lTBoHjL4F6reaeGBPF/98p1kLUdeouxQYT2Zw6PPkvA0ILrbxEa6lSPMR+yRIPngzB+CCLtCaXImf+f74//FG2kzE7Ds1h+wGATmCL/fRBKnKyK4/9QyhYo/25nBNSmMOia2zfpQLUqrOeZsVfTOIDLpYFZrLD+eKnnwf5oa5xAGidJjViHnPqjTkLuCGZItwjveprcPjA1TKOpHDiez0AB5ChYmvs5S3nWaBi29YtiT+SqBYVcPAj0lXiOWsIyJgza26s6LXqIUJVwVTrP3E/qqpnk5oWCquW2ofu8drVT7majAko0fCGEXMZHkWqBpHnfAYfF23y7RtBp+PZ+SH11V7yEXwjWnbkQZfZAfEuRELvJ0besO+8pRgaFTz+dZEbj81c7r7eKMjQ9zZVgmto/uVMjHuVC7/NpPIpK/e8CKmL/uQqL+eWjj1UVlWVLLkV12c80VA1nU3naO2SEfIClj6Ryo/EgapQKDUWZvQBIA3xvwFyQKj3Q2y1K++Xl/T9A3e+9G8OZ3bwI5zil//905NYnHPRMqx2hyC9ZWIKrzzKhni/eo3WpF4dQOvbdormhkaW7SjSEdX02rCdRuE5y2ym9Ju4PgNz2qXzBj+Tobg="
+
 branches:
   only:
     - master
