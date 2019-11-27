@@ -18,7 +18,11 @@ package com.uber.lintchecks.android
 import com.android.SdkConstants.ANDROID_NS_NAME_PREFIX
 import com.android.SdkConstants.ATTR_FILL_VIEWPORT
 import com.android.resources.ResourceFolderType
-import com.android.tools.lint.detector.api.*
+import com.android.tools.lint.detector.api.Category
+import com.android.tools.lint.detector.api.Issue
+import com.android.tools.lint.detector.api.ResourceXmlDetector
+import com.android.tools.lint.detector.api.XmlContext
+import com.android.tools.lint.detector.api.Severity
 import org.w3c.dom.Element
 
 /** Custom lint check to make sure that Scrollview which has WebView as its child sets fillViewport to true*/
@@ -57,8 +61,8 @@ class XmlWebViewInsideScrollViewDetector : ResourceXmlDetector() {
     override fun visitElement(context: XmlContext, element: Element) {
         val parentScrollView = findParentScrollView(element)
         parentScrollView?.attributes?.let { attrs ->
-            if (attrs.getNamedItem(ATTR_ANDROID_VIEWPORT) == null
-                    || attrs.getNamedItem(ATTR_ANDROID_VIEWPORT).nodeValue != "true")
+            if (attrs.getNamedItem(ATTR_ANDROID_VIEWPORT) == null ||
+                    attrs.getNamedItem(ATTR_ANDROID_VIEWPORT).nodeValue != "true")
                 context.report(ISSUE,
                         context.getElementLocation(parentScrollView), LINT_ERROR_MESSAGE)
         }

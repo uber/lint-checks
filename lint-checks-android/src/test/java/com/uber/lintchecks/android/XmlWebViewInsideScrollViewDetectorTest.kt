@@ -107,7 +107,6 @@ class XmlWebviewInsideScrollviewDetectorTest : LintTestBase() {
                 .issues(XmlWebViewInsideScrollViewDetector.ISSUE)
                 .run()
                 .expectClean()
-
     }
 
     @Test
@@ -167,7 +166,7 @@ class XmlWebviewInsideScrollviewDetectorTest : LintTestBase() {
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
-                                
+
                                 <FrameLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent">
@@ -196,7 +195,7 @@ class XmlWebviewInsideScrollviewDetectorTest : LintTestBase() {
                                 android:layout_height="match_parent"
                                 android:fillViewport="true"
                                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
-                                
+
                                 <FrameLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent">
