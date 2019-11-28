@@ -25,15 +25,15 @@ class XmlWebViewInsideScrollViewDetectorTest : LintTestBase() {
     TestLintTask.lint()
         .files(xmlSource("res/layout/webview_inside_scrollview_wo_fill_viewport.xml",
             """<?xml version="1.0" encoding="utf-8"?>
-                    <ScrollView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                <ScrollView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                        <WebView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"/>
-                    </ScrollView>"""))
+                    <WebView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </ScrollView>"""))
         .detector(XmlWebViewInsideScrollViewDetector())
         .issues(XmlWebViewInsideScrollViewDetector.ISSUE)
         .run()
@@ -46,17 +46,17 @@ class XmlWebViewInsideScrollViewDetectorTest : LintTestBase() {
     TestLintTask.lint()
         .files(xmlSource("res/layout/webview_inside_support_widget_scrollview_wo_fill_viewport.xml",
             """<?xml version="1.0" encoding="utf-8"?>
-                    <android.support.v4.widget.NestedScrollView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                <android.support.v4.widget.NestedScrollView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                        <WebView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"/>
-                    </android.support.v4.widget.NestedScrollView>"""))
+                    <WebView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </android.support.v4.widget.NestedScrollView>"""))
         .detector(XmlWebViewInsideScrollViewDetector())
         .issues(XmlWebViewInsideScrollViewDetector.ISSUE)
         .run()
@@ -69,17 +69,17 @@ class XmlWebViewInsideScrollViewDetectorTest : LintTestBase() {
     TestLintTask.lint()
         .files(xmlSource("res/layout/webview_inside_androidx_widget_scrollview_wo_fill_viewport.xml",
             """<?xml version="1.0" encoding="utf-8"?>
-                    <androidx.core.widget.NestedScrollView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                <androidx.core.widget.NestedScrollView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                        <WebView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"/>
-                    </androidx.core.widget.NestedScrollView>"""))
+                    <WebView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </androidx.core.widget.NestedScrollView>"""))
         .detector(XmlWebViewInsideScrollViewDetector())
         .issues(XmlWebViewInsideScrollViewDetector.ISSUE)
         .run()
@@ -92,16 +92,16 @@ class XmlWebViewInsideScrollViewDetectorTest : LintTestBase() {
     TestLintTask.lint()
         .files(xmlSource("res/layout/webview_inside_scrollview_with_fill_viewport.xml",
             """<?xml version="1.0" encoding="utf-8"?>
-                    <ScrollView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fillViewport="true">
+                <ScrollView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true">
 
-                        <WebView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"/>
-                    </ScrollView>"""))
+                    <WebView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </ScrollView>"""))
         .detector(XmlWebViewInsideScrollViewDetector())
         .issues(XmlWebViewInsideScrollViewDetector.ISSUE)
         .run()
@@ -113,18 +113,18 @@ class XmlWebViewInsideScrollViewDetectorTest : LintTestBase() {
     TestLintTask.lint()
         .files(xmlSource("res/layout/webview_inside_support_widget_scrollview_with_fill_viewport.xml",
             """<?xml version="1.0" encoding="utf-8"?>
-                    <android.support.v4.widget.NestedScrollView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fillViewport="true"
-                        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                <android.support.v4.widget.NestedScrollView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                        <WebView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"/>
-                    </android.support.v4.widget.NestedScrollView>"""))
+                    <WebView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </android.support.v4.widget.NestedScrollView>"""))
         .detector(XmlWebViewInsideScrollViewDetector())
         .issues(XmlWebViewInsideScrollViewDetector.ISSUE)
         .run()
@@ -136,18 +136,18 @@ class XmlWebViewInsideScrollViewDetectorTest : LintTestBase() {
     TestLintTask.lint()
         .files(xmlSource("res/layout/webview_inside_androidx_widget_scrollview_with_fill_viewport.xml",
             """<?xml version="1.0" encoding="utf-8"?>
-                    <androidx.core.widget.NestedScrollView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fillViewport="true"
-                        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                <androidx.core.widget.NestedScrollView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                            <WebView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"/>
-                    </androidx.core.widget.NestedScrollView>"""))
+                    <WebView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </androidx.core.widget.NestedScrollView>"""))
         .detector(XmlWebViewInsideScrollViewDetector())
         .issues(XmlWebViewInsideScrollViewDetector.ISSUE)
         .run()
@@ -159,22 +159,22 @@ class XmlWebViewInsideScrollViewDetectorTest : LintTestBase() {
     TestLintTask.lint()
         .files(xmlSource("res/layout/scrollview_with_multiple_children_without_fill_viewport.xml",
             """<?xml version="1.0" encoding="utf-8"?>
-                    <ScrollView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                <ScrollView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                        android:layout_height="match_parent">
 
-                            <FrameLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <WebView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"/>
-                            </FrameLayout>
-                    </ScrollView>"""))
+                        <WebView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+                    </FrameLayout>
+                </ScrollView>"""))
         .detector(XmlWebViewInsideScrollViewDetector())
         .issues(XmlWebViewInsideScrollViewDetector.ISSUE)
         .run()
@@ -187,23 +187,23 @@ class XmlWebViewInsideScrollViewDetectorTest : LintTestBase() {
     TestLintTask.lint()
         .files(xmlSource("res/layout/scrollview_with_multiple_children_with_fill_viewport.xml",
             """<?xml version="1.0" encoding="utf-8"?>
-                    <ScrollView 
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                <ScrollView 
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fillViewport="true"
-                        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                        android:layout_height="match_parent">
 
-                        <FrameLayout
+                        <WebView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <WebView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"/>
-                         </FrameLayout>
-                    </ScrollView>"""))
+                            android:layout_height="match_parent"/>
+                    </FrameLayout>
+                </ScrollView>"""))
         .detector(XmlWebViewInsideScrollViewDetector())
         .issues(XmlWebViewInsideScrollViewDetector.ISSUE)
         .run()
