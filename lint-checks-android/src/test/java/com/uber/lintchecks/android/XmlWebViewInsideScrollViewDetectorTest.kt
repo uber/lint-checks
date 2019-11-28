@@ -187,7 +187,7 @@ class XmlWebViewInsideScrollViewDetectorTest : LintTestBase() {
     TestLintTask.lint()
         .files(xmlSource("res/layout/scrollview_with_multiple_children_with_fill_viewport.xml",
             """<?xml version="1.0" encoding="utf-8"?>
-                <ScrollView 
+                <ScrollView
                     xmlns:android="http://schemas.android.com/apk/res/android"
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:layout_width="match_parent"
