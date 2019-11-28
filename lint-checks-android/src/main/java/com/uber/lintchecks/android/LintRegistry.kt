@@ -28,7 +28,8 @@ class LintRegistry : IssueRegistry() {
       XmlHardcodedColorOrDimensionDetector.ISSUE,
       ColorResourceUsageDetector.ISSUE,
       GetDrawableDetector.ISSUE,
-      FrameworkPairDetector.ISSUE
+      FrameworkPairDetector.ISSUE,
+      XmlWebViewInsideScrollViewDetector.ISSUE
   )
 
   override val api: Int = CURRENT_API

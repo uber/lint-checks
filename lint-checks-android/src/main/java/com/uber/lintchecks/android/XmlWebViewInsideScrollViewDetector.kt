@@ -66,7 +66,8 @@ class XmlWebViewInsideScrollViewDetector : ResourceXmlDetector() {
             .value("true")
             .build()
         context.report(ISSUE,
-            context.getElementLocation(parentScrollView), LINT_ERROR_MESSAGE,
+            context.getElementLocation(parentScrollView),
+            LINT_ERROR_MESSAGE,
             replaceFix)
       }
     }
