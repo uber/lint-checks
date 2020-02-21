@@ -15,18 +15,18 @@ This project is experimental and the APIs are not considered stable.
 Java/Kotlin Lint Checks
 
 ```groovy
-lintChecks "com.uber.lint-checks:lint-checks:x.y.z
+lintChecks "com.uber.lint-checks:lint-checks:x.y.z"
 ```
 
 Android Lint Checks
 
 ```groovy
-lintChecks "com.uber.lint-checks:lint-checks-android:x.y.z
+lintChecks "com.uber.lint-checks:lint-checks-android:x.y.z"
 ```
 RxJava Lint Checks
 
 ```groovy
-lintChecks "com.uber.lint-checks:lint-checks-rxjava:x.y.z
+lintChecks "com.uber.lint-checks:lint-checks-rxjava:x.y.z"
 ```
 
 ## License
