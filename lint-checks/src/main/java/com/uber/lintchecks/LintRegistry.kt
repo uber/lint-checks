@@ -16,6 +16,7 @@
 package com.uber.lintchecks
 
 import com.android.tools.lint.client.api.IssueRegistry
+import com.android.tools.lint.detector.api.CURRENT_API
 import com.android.tools.lint.detector.api.Issue
 import com.google.auto.service.AutoService
 
@@ -26,4 +27,6 @@ class LintRegistry : IssueRegistry() {
       StringToCaseNoLocaleDetector.ISSUE,
       SystemCurrentTimeMillisDetector.ISSUE
   )
+
+  override val api: Int = CURRENT_API
 }
