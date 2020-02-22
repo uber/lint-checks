@@ -12,7 +12,9 @@ This project is experimental and the APIs are not considered stable.
 
 ## Download
 
-Java/Kotlin Lint Checks
+Java/Kotlin Lint Checks 
+
+[![Maven Central](https://img.shields.io/maven-central/v/com.uber.lint-checks/lint-checks.svg)](https://mvnrepository.com/artifact/com.uber.lint-checks/lint-checks)
 
 ```groovy
 lintChecks "com.uber.lint-checks:lint-checks:x.y.z"
@@ -20,10 +22,15 @@ lintChecks "com.uber.lint-checks:lint-checks:x.y.z"
 
 Android Lint Checks
 
+[![Maven Central](https://img.shields.io/maven-central/v/com.uber.lint-checks/lint-checks-android.svg)](https://mvnrepository.com/artifact/com.uber.lint-checks/lint-checks-android)
+
 ```groovy
 lintChecks "com.uber.lint-checks:lint-checks-android:x.y.z"
 ```
+
 RxJava Lint Checks
+
+[![Maven Central](https://img.shields.io/maven-central/v/com.uber.lint-checks/lint-checks-rxjava.svg)](https://mvnrepository.com/artifact/com.uber.lint-checks/lint-checks-rxjava)
 
 ```groovy
 lintChecks "com.uber.lint-checks:lint-checks-rxjava:x.y.z"
