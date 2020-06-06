@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019. Uber Technologies
+ * Copyright (C) 2020. Uber Technologies
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,16 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.uber.myapplication
+package com.uber.lintchecks.recipes.guardrails
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-
-/** Sample activity.  */
-class MainActivity : AppCompatActivity() {
-
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
-  }
-}
+/**
+ * An annotation that is used to denote methods that should not be called from any
+ * context other than Kotlin code. This is important for cases in APIs that support both Kotlin and
+ * Java in different ways.
+ */
+annotation class KotlinOnly
