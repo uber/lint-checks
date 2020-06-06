@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019. Uber Technologies
+ * Copyright (C) 2020. Uber Technologies
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,16 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.uber.myapplication
+package com.uber.lintchecks.recipes
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.android.tools.lint.client.api.IssueRegistry
+import com.android.tools.lint.detector.api.CURRENT_API
+import com.android.tools.lint.detector.api.Issue
+import com.google.auto.service.AutoService
+import com.uber.lintchecks.recipes.guardrails.JavaOnlyDetector
 
-/** Sample activity.  */
-class MainActivity : AppCompatActivity() {
+@AutoService(IssueRegistry::class)
+class LintRegistry : IssueRegistry() {
+  override val issues: List<Issue> = listOf(
+      JavaOnlyDetector.ISSUE
+  )
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
-  }
+  override val api: Int = CURRENT_API
 }
