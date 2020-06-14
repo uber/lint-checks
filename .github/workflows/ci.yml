@@ -32,9 +32,9 @@ jobs:
       run: fossa analyze
       env:
         FOSSA_API_KEY: 10d9d2e111c236cb776e7bb7c09bf244
-    - name: Upload snapshot (master only)
+    - name: Upload snapshot (main only)
       run: ./gradlew uploadArchives --stacktrace --no-daemon --no-parallel
       env:
         SONATYPE_NEXUS_USERNAME: ${{ secrets.SonatypeUsername }}
         SONATYPE_NEXUS_PASSWORD: ${{ secrets.SonatypePassword }}
-      if: success() && github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+      if: success() && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
