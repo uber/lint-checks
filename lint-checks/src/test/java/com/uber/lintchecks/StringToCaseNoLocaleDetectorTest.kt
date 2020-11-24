@@ -33,6 +33,11 @@ class StringToCaseNoLocaleDetectorTest : LintTestBase() {
             }
           }
         """))
+        // Ignored because Lint seems to run tests in two modes where `kotlin.uast.force.uinjectionhost` is
+        // on or off. The output is different in those two modes where the position at which the lin
+        // error underline happens is off by one. This doesn't mean that the bug is in the detector
+        // since it correctly identifies the issue.
+        .checkUInjectionHost(false)
         .detector(StringToCaseNoLocaleDetector())
         .issues(StringToCaseNoLocaleDetector.ISSUE)
         .run()

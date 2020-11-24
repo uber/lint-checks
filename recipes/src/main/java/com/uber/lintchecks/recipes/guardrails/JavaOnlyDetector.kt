@@ -170,8 +170,9 @@ class JavaOnlyDetector : Detector(), SourceCodeScanner {
       ): Pair<String, LintFix>? {
         return context.evaluator.getSuperMethod(node)?.let { method ->
           context.evaluator.findAnnotation(method, targetAnnotation)?.run {
+            val containingClass = checkNotNull(method.containingClass)
             val message = "Function overrides ${method.name} in ${UastLintUtils.getClassName(
-                method.containingClass)} which is annotated @$targetAnnotationSimpleName, it should also be annotated."
+                    containingClass)} which is annotated @$targetAnnotationSimpleName, it should also be annotated."
             val modifier = node.modifierList.children.joinToString(separator = " ") { it.text }
             return@let message to fix()
                 .replace()
