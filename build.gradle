@@ -43,7 +43,7 @@ subprojects {
     }
 
     apply from: rootProject.file('gradle/dependencies.gradle')
-    apply plugin: 'com.diffplug.gradle.spotless'
+    apply plugin: 'com.diffplug.spotless'
     apply from: rootProject.file('gradle/spotless.gradle')
 
     apply plugin: 'net.ltgt.errorprone'

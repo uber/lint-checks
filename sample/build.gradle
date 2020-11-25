@@ -19,7 +19,6 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion deps.build.compileSdkVersion
-    buildToolsVersion deps.build.buildToolsVersion
 
     defaultConfig {
         applicationId "com.uber.myapplication"
