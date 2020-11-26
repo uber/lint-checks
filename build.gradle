@@ -30,7 +30,8 @@ buildscript {
             classpath "net.ltgt.gradle:gradle-errorprone-plugin:${deps.build.gradlePlugins.errorProne}"
             classpath "net.ltgt.gradle:gradle-nullaway-plugin:${deps.build.gradlePlugins.nullAway}"
             classpath "com.diffplug.spotless:spotless-plugin-gradle:${deps.build.gradlePlugins.spotless}"
-            classpath 'com.vanniktech:gradle-maven-publish-plugin:0.8.0'
+            classpath 'com.vanniktech:gradle-maven-publish-plugin:0.13.0'
+            classpath "org.jetbrains.dokka:dokka-gradle-plugin:1.4.10.2"
         }
     }
 }
